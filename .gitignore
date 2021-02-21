@@ -1,0 +1,13 @@
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+/config/config.php
+/config/db_config.php
