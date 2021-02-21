@@ -1,8 +1,9 @@
 # :robot: AsoStrife Gif Porn Bot
 
 <p align="center">
-	<img src="https://raw.githubusercontent.com/AsoStrife/AsoStrife-Gif-Porn-Bot/main/img/meme.png" style="zoom:25%;">
+	<img src="https://raw.githubusercontent.com/AsoStrife/AsoStrife-Gif-Porn-Bot/master/img/meme.png" style="zoom:50%;">
 </p>
+
 So, you were browsing on Github and came across this bot? Horny dude.... 
 
 I just spent 30 minutes of my life, on this sunny Sunday of 21-02-2021 (I'm Italian so yes, the date format is dd-mm-yyyy), creating a Telegram Bot that sends random porn gifs to a chat under request. You can use it in both private chats and groups. 
