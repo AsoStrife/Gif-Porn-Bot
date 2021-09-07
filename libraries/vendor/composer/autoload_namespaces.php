@@ -6,6 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'PEAR' => array($vendorDir . '/pear/pear_exception'),
+    'stringEncode' => array($vendorDir . '/paquettg/string-encode/src'),
     'HTTP_Request2' => array($vendorDir . '/pear/http_request2'),
 );

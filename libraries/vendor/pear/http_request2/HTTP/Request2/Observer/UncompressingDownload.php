@@ -14,12 +14,12 @@
  * @package   HTTP_Request2
  * @author    Delian Krustev <krustev@krustev.net>
  * @author    Alexey Borzov <avb@php.net>
- * @copyright 2008-2016 Alexey Borzov <avb@php.net>
+ * @copyright 2008-2021 Alexey Borzov <avb@php.net>
  * @license   http://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License
  * @link      http://pear.php.net/package/HTTP_Request2
  */
 
-require_once 'HTTP/Request2/Response.php';
+// pear-package-only require_once 'HTTP/Request2/Response.php';
 
 /**
  * An observer that saves response body to stream, possibly uncompressing it

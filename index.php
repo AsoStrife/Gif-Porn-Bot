@@ -13,6 +13,7 @@ require_once('libraries/Message.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+
 $input = json_decode(file_get_contents('php://input'), true);
 
 if(!isset($input)){
@@ -33,10 +34,15 @@ $log->save($input);
 
 // Accepted strings
 $accepted_strings = array(
-	"/porn",
 	"pls porn",
-	'give me porn', 
-	'gimme porn'
+
+    "pls pompini",
+    "pls tette", 
+    "pls cowgirl",
+    "pls missionario", 
+    "pls culi", 
+    "pls pecorina",
+    "pls sborrate"
 );
 
 
@@ -57,8 +63,14 @@ if($text == "/start"){
 }
 
 if($text == "/info"){
-	$string = "
-		A simple bot that sends you random porn gifs. To make your day. Thanks the humble @AsoStrife for this bot. \n\n
+    $string = "AsoStrife Gif Porn Bot. Before go to horny jail, just take 3 seconds to understand how this bot works.\n\nType:\n ";
+
+	foreach($accepted_strings as $s){
+		$string .=  "- " . $s . "\n"; 
+	}
+
+	$string .= "
+            \nTo make your day. Thanks the humble @AsoStrife for this bot. \n\n
 		- Website: https://andreacorriga.com
 		- Donations: http://paypal.me/AsoStrife";
 
@@ -67,4 +79,4 @@ if($text == "/info"){
 
 // Send Porn Gif if message is in array
 if(in_array($text, $accepted_strings))
-	$response = $request->send_gif($message->chatID);
+	$response = $request->send_gif($message->chatID, $text);
