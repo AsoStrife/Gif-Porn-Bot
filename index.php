@@ -42,7 +42,8 @@ $accepted_strings = array(
     "pls missionario", 
     "pls culi", 
     "pls pecorina",
-    "pls sborrate"
+    "pls sborrate",
+    "pls micio"
 );
 
 
