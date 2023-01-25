@@ -35,7 +35,6 @@ $log->save($input);
 // Accepted strings
 $accepted_strings = array(
 	"pls porn",
-
     "pls pompini",
     "pls tette", 
     "pls cowgirl",
@@ -43,11 +42,8 @@ $accepted_strings = array(
     "pls culi", 
     "pls pecorina",
     "pls sborrate",
-    "pls micio"
+    "pls figa"
 );
-
-
-
 
 $text = strtolower($message->text);
 

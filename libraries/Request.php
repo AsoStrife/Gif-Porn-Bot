@@ -21,7 +21,7 @@ class Request{
         'pls culi'          => 'http://porngif.it/index.php?k=culi',
         'pls pecorina'      => 'http://porngif.it/index.php?k=a%20pecorina', 
         'pls sborrate'      => 'http://porngif.it/index.php?k=sborrate',
-        'pls micio'         => 'http://porngif.it/index.php?k=micio'
+        'pls figa'          => 'http://porngif.it/index.php?k=micio'
     );
 
 
