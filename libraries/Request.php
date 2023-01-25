@@ -1,6 +1,6 @@
 <?php
-require_once('vendor/autoload.php');
-require_once('vendor/pear/http_request2/HTTP/Request2.php');
+require_once('../vendor/autoload.php');
+require_once('../vendor/pear/http_request2/HTTP/Request2.php');
 //require_once 'HTTP/Request2.php'; // Only when installed with PEAR
 use PHPHtmlParser\Dom;
 

@@ -26,8 +26,14 @@ Accepted commands:
 - /info
 - /porn
 - pls porn
-- give me porn
-- gimme porn
+- pls pompini
+- pls tette
+- pls cowgirl
+- pls missionario
+- pls culi
+- pls pecorina
+- pls sborrate
+- pls figa
 
 # :money_with_wings: ​Donation 
 
