@@ -26,7 +26,6 @@ $message = new Message($input['message']);
 $chat = isset($input['chat']) ? $input['chat'] : null;
 $request = new Request($config);
 
-
 /* Don't need logs
 $log = new Logs();
 $input = file_get_contents('php://input');
@@ -49,7 +48,7 @@ $accepted_strings = array(
 $text = strtolower($message->text);
 
 if($text == "/start"){
-	$string = "AsoStrife Gif Porn Bot. Before go to horny jail, just take 3 seconds to understand how this bot works.\n\nType:\n ";
+	$string = "Gif Porn Bot. Before go to horny jail, just take 3 seconds to understand how this bot works.\n\nType:\n ";
 
 	foreach($accepted_strings as $s){
 		$string .=  "- " . $s . "\n"; 
@@ -77,4 +76,4 @@ if($text == "/info"){
 
 // Send Porn Gif if message is in array
 if(in_array($text, $accepted_strings))
-	$response = $request->send_gif($message->chatID, $text);
+    $response = $request->send_gif($message->chatID, $text);

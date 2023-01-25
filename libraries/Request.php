@@ -1,9 +1,7 @@
 <?php
-require_once('../vendor/pear/http_request2/HTTP/Request2.php');
-//require_once 'HTTP/Request2.php'; // Only when installed with PEAR
-//require_once 'HTTP/Request2.php';
 
 use PHPHtmlParser\Dom;
+use Curl\Curl;
 
 /**
  * @author Andrea Corriga
@@ -38,22 +36,17 @@ class Request {
 		if($chatID == null)
 			return null; 
 
-	    $url = $this->config['apiUrl'] . $method;
+        $url = $this->config['apiUrl'] . $method;
+			
+        $data = array(
+            'chat_id' => $chatID,
+            'text' => $text); 
 
-		try {
 
-			$request = new HTTP_Request2($url);
-			$request->setMethod(HTTP_Request2::METHOD_POST)
-				->addPostParameter(array(
-											'chat_id' 		=> $chatID,
-											'text' 			=> $text,
-										)); 
-			$response = $request->send()->getBody();
-			return $response; 
-		} 
-		catch (Exception $exc) {
-			return $exc->getMessage();
-		}
+        $curl = new Curl();
+        $curl->post($url, $data);
+			
+
 	}
 	
 	/**
@@ -61,26 +54,18 @@ class Request {
 	 */
 	public function send_gif($chatID, $text, $method = 'sendAnimation') {
 
-		if($chatID == null)
+        if($chatID == null)
 			return null; 
 
-	    $url = $this->config['apiUrl'] . $method;
+        $url = $this->config['apiUrl'] . $method;
 		$gif = $this->get_gif($text);
 
-		try {
+        $data = array(
+            'chat_id' 	=> $chatID,
+            'animation' => $gif); 
 
-			$request = new HTTP_Request2($url);
-			$request->setMethod(HTTP_Request2::METHOD_POST)
-				->addPostParameter(array(
-											'chat_id' 	=> $chatID,
-											'animation' => $gif,
-										)); 
-			$response = $request->send()->getBody();
-			return $response; 
-		} 
-		catch (Exception $exc) {
-			return $exc->getMessage();
-		}
+        $curl = new Curl();
+        return $curl->post($url, $data);
 	}
 
 	/**
@@ -96,10 +81,8 @@ class Request {
             $url = $this->urls[$parameter];
         }
 
-
         $dom = new Dom;
         $dom->loadFromUrl($url);
-
 
         $list_html = $dom->find('#list')[0]->innerHtml;
 
@@ -108,25 +91,6 @@ class Request {
 
         $rand_int = rand(0, count($imgs) - 1);
         return 'http://porngif.it/' . $imgs[$rand_int]->src;
-        /*
-		try {
-            /*
-			$request = new HTTP2("https://porngifs.com/ajax/scrolldown");
-			$request->setMethod(HTTP_Request2::METHOD_POST)
-				->addPostParameter(array(
-											'loadcount' => rand(10, 9999)
-										)); 
-
-                                        
-			$response = json_decode($request->send()->getBody(), 1);
-			return "https://cdn.porngifs.com/img/" . $response[0]['id'];
-            
-            return "https://cdn.sex.com/images/pinporn/2021/08/20/25740761.gif?width=300";
-		} 
-		catch (Exception $exc) {
-			return null;
-		}
-        */
 	}
 
 }
