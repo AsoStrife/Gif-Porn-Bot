@@ -5,6 +5,7 @@
  * @date 21/02/2021 (dd-mm-YYYY)
  */
 
+require_once('vendor/autoload.php');
 require_once('config/config.php');
 require_once('libraries/Request.php');
 require_once('libraries/Message.php');
@@ -17,7 +18,7 @@ ini_set('display_errors', 1);
 $input = json_decode(file_get_contents('php://input'), true);
 
 if(!isset($input)){
-	header("location: http://t.me/asostrife_gif_porn_bot");
+	header("location: https://t.me/gif_porn_bot");
 	exit;
 } 
 

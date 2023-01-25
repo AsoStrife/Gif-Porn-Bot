@@ -1,14 +1,15 @@
 <?php
-require_once('../vendor/autoload.php');
 require_once('../vendor/pear/http_request2/HTTP/Request2.php');
 //require_once 'HTTP/Request2.php'; // Only when installed with PEAR
+//require_once 'HTTP/Request2.php';
+
 use PHPHtmlParser\Dom;
 
 /**
  * @author Andrea Corriga
  * @date 21/02/2021 (dd-mm-YYYY)
  */
-class Request{
+class Request {
 
 	private $config; 
 
@@ -110,7 +111,7 @@ class Request{
         /*
 		try {
             /*
-			$request = new HTTP_Request2("https://porngifs.com/ajax/scrolldown");
+			$request = new HTTP2("https://porngifs.com/ajax/scrolldown");
 			$request->setMethod(HTTP_Request2::METHOD_POST)
 				->addPostParameter(array(
 											'loadcount' => rand(10, 9999)
