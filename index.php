@@ -60,7 +60,7 @@ if($text == "/start"){
 }
 
 if($text == "/info"){
-    $string = "AsoStrife Gif Porn Bot. Before go to horny jail, just take 3 seconds to understand how this bot works.\n\nType:\n ";
+    $string = "AsoStrife Gif Porn Bot. Before go to horny jail, just take 3 seconds to understand how this bot works.\n\nType:\n";
 
 	foreach($accepted_strings as $s){
 		$string .=  "- " . $s . "\n"; 
