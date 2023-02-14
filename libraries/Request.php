@@ -13,14 +13,49 @@ class Request {
 
     // $items[array_rand($items)];
     private $urls = array(
-        'pls pompini'       => 'http://porngif.it/index.php?k=pompini',
-        'pls tette'         => 'http://porngif.it/index.php?k=tette',
-        'pls cowgirl'       => 'http://porngif.it/index.php?k=cowgirl', 
-        'pls missionario'   => 'http://porngif.it/index.php?k=missionario', 
-        'pls culi'          => 'http://porngif.it/index.php?k=culi',
-        'pls pecorina'      => 'http://porngif.it/index.php?k=a%20pecorina', 
-        'pls sborrate'      => 'http://porngif.it/index.php?k=sborrate',
-        'pls figa'          => 'http://porngif.it/index.php?k=micio'
+        'pls amateur'       => 'https://xgifer.com/amateur/',
+        'pls anal'         => 'https://xgifer.com/anal/',
+        'pls asian'       => 'https://xgifer.com/asian/', 
+        'pls ass'   => 'https://xgifer.com/ass/', 
+        'pls babes'          => 'https://xgifer.com/babes/',
+        'pls bbw'      => 'https://xgifer.com/bbw/', 
+        'pls bdsm'      => 'https://xgifer.com/bdsm/',
+        'pls bigtette'          => 'https://xgifer.com/big-tits/'
+        'pls blonde'          => 'https://xgifer.com/blonde/'
+        'pls blowjob'          => 'https://xgifer.com/blowjob/'
+        'pls brunette'          => 'https://xgifer.com/brunette/'
+        'pls celebrity'          => 'https://xgifer.com/celebrity/'
+        'pls college'          => 'https://xgifer.com/college/'
+        'pls creampie'          => 'https://xgifer.com/creampie/'
+        'pls cumshots'          => 'https://xgifer.com/cumshots/'
+        'pls doublepene'          => 'https://xgifer.com/double-penetration/'
+        'pls ebony'          => 'https://xgifer.com/ebony/'
+        'pls emo'          => 'https://xgifer.com/emo/'
+        'pls fisting'          => 'https://xgifer.com/fisting/'
+        'pls footjob'          => 'https://xgifer.com/footjob/'
+        'pls gangbang'          => 'https://xgifer.com/gang-bang/'
+        'pls girlfriend'          => 'https://xgifer.com/girlfriend/'
+        'pls groupsex'          => 'https://xgifer.com/group-sex/'
+        'pls hairy'          => 'https://xgifer.com/hairy/'
+        'pls handjob'          => 'https://xgifer.com/handjob/'
+        'pls hentai'          => 'https://xgifer.com/hentai/'
+        'pls hardcore'          => 'https://xgifer.com/hardcore/'
+        'pls indian'          => 'https://xgifer.com/indian/'
+        'pls interracial'          => 'https://xgifer.com/interracial/'
+        'pls latina'          => 'https://xgifer.com/latina/'
+        'pls lesbian'          => 'https://xgifer.com/lesbian/'
+        'pls lingerie'          => 'https://xgifer.com/lingerie/'
+        'pls masturbation'          => 'https://xgifer.com/masturbation/'
+        'pls mature'          => 'https://xgifer.com/mature/'
+        'pls milf'          => 'https://xgifer.com/milf/'
+        'pls public'          => 'https://xgifer.com/public-sex/'
+        'pls pussy'          => 'https://xgifer.com/pussy/'
+        'pls redhead'          => 'https://xgifer.com/redhead/'
+        'pls selfshot'          => 'https://xgifer.com/selfshot/'
+        'pls cazzo'          => 'https://xgifer.com/solo-male/'
+        'pls teen'          => 'https://xgifer.com/teen/'
+        'pls threesome'          => 'https://xgifer.com/threesome/'
+        'pls toys'          => 'https://xgifer.com/toys/'
     );
 
 
