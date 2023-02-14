@@ -10,6 +10,7 @@ use Curl\Curl;
 class Request {
 
 	private $config; 
+    private $log_path = "/home/lzaslddj/gifbot.andreacorriga.com/error_log"; 
 
     // $items[array_rand($items)];
     private $urls = array(
@@ -120,10 +121,14 @@ class Request {
             $url = $this->urls[$parameter];
         }
 
+        error_log("Requested Gif with the following url: " . $url, 3, $this->log_path);
+
         $dom = new Dom;
         $dom->loadFromUrl($url);
 
         $elements = $dom->find('.thumb-holder'); 
+
+        error_log(".thumg-holder number of elements: " . count($elements), 3, $this->log_path);
 
         if(count($elements) == 0)
             return ""; 
@@ -132,6 +137,8 @@ class Request {
         $max = count($elements); 
 
         $random_gif = random_int($min, $max); 
+
+        error_log("Random element index: " . $random_gif, 3, $this->log_path);
 
         $single_element = $elements[$random_gif]->find('.thumb-image');
 
