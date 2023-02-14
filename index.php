@@ -33,17 +33,7 @@ $log->save($input);
 */
 
 // Accepted strings
-$accepted_strings = array(
-	"pls porn",
-    "pls pompini",
-    "pls tette", 
-    "pls cowgirl",
-    "pls missionario", 
-    "pls culi", 
-    "pls pecorina",
-    "pls sborrate",
-    "pls figa"
-);
+$accepted_strings = $request->getUrls();
 
 $text = strtolower($message->text);
 

@@ -20,45 +20,47 @@ class Request {
         'pls babes'          => 'https://xgifer.com/babes/',
         'pls bbw'      => 'https://xgifer.com/bbw/', 
         'pls bdsm'      => 'https://xgifer.com/bdsm/',
-        'pls bigtette'          => 'https://xgifer.com/big-tits/'
-        'pls blonde'          => 'https://xgifer.com/blonde/'
-        'pls blowjob'          => 'https://xgifer.com/blowjob/'
-        'pls brunette'          => 'https://xgifer.com/brunette/'
-        'pls celebrity'          => 'https://xgifer.com/celebrity/'
-        'pls college'          => 'https://xgifer.com/college/'
-        'pls creampie'          => 'https://xgifer.com/creampie/'
-        'pls cumshots'          => 'https://xgifer.com/cumshots/'
-        'pls doublepene'          => 'https://xgifer.com/double-penetration/'
-        'pls ebony'          => 'https://xgifer.com/ebony/'
-        'pls emo'          => 'https://xgifer.com/emo/'
-        'pls fisting'          => 'https://xgifer.com/fisting/'
-        'pls footjob'          => 'https://xgifer.com/footjob/'
-        'pls gangbang'          => 'https://xgifer.com/gang-bang/'
-        'pls girlfriend'          => 'https://xgifer.com/girlfriend/'
-        'pls groupsex'          => 'https://xgifer.com/group-sex/'
-        'pls hairy'          => 'https://xgifer.com/hairy/'
-        'pls handjob'          => 'https://xgifer.com/handjob/'
-        'pls hentai'          => 'https://xgifer.com/hentai/'
-        'pls hardcore'          => 'https://xgifer.com/hardcore/'
-        'pls indian'          => 'https://xgifer.com/indian/'
-        'pls interracial'          => 'https://xgifer.com/interracial/'
-        'pls latina'          => 'https://xgifer.com/latina/'
-        'pls lesbian'          => 'https://xgifer.com/lesbian/'
-        'pls lingerie'          => 'https://xgifer.com/lingerie/'
-        'pls masturbation'          => 'https://xgifer.com/masturbation/'
-        'pls mature'          => 'https://xgifer.com/mature/'
-        'pls milf'          => 'https://xgifer.com/milf/'
-        'pls public'          => 'https://xgifer.com/public-sex/'
-        'pls pussy'          => 'https://xgifer.com/pussy/'
-        'pls redhead'          => 'https://xgifer.com/redhead/'
-        'pls selfshot'          => 'https://xgifer.com/selfshot/'
-        'pls cazzo'          => 'https://xgifer.com/solo-male/'
-        'pls teen'          => 'https://xgifer.com/teen/'
-        'pls threesome'          => 'https://xgifer.com/threesome/'
-        'pls toys'          => 'https://xgifer.com/toys/'
+        'pls bigtette'          => 'https://xgifer.com/big-tits/',
+        'pls blonde'          => 'https://xgifer.com/blonde/',
+        'pls blowjob'          => 'https://xgifer.com/blowjob/',
+        'pls brunette'          => 'https://xgifer.com/brunette/',
+        'pls celebrity'          => 'https://xgifer.com/celebrity/',
+        'pls college'          => 'https://xgifer.com/college/',
+        'pls creampie'          => 'https://xgifer.com/creampie/',
+        'pls cumshots'          => 'https://xgifer.com/cumshots/',
+        'pls doublepene'          => 'https://xgifer.com/double-penetration/',
+        'pls ebony'          => 'https://xgifer.com/ebony/',
+        'pls emo'          => 'https://xgifer.com/emo/',
+        'pls fisting'          => 'https://xgifer.com/fisting/',
+        'pls footjob'          => 'https://xgifer.com/footjob/',
+        'pls gangbang'          => 'https://xgifer.com/gang-bang/',
+        'pls girlfriend'          => 'https://xgifer.com/girlfriend/',
+        'pls groupsex'          => 'https://xgifer.com/group-sex/',
+        'pls hairy'          => 'https://xgifer.com/hairy/',
+        'pls handjob'          => 'https://xgifer.com/handjob/',
+        'pls hentai'          => 'https://xgifer.com/hentai/',
+        'pls hardcore'          => 'https://xgifer.com/hardcore/',
+        'pls indian'          => 'https://xgifer.com/indian/',
+        'pls interracial'          => 'https://xgifer.com/interracial/',
+        'pls latina'          => 'https://xgifer.com/latina/',
+        'pls lesbian'          => 'https://xgifer.com/lesbian/',
+        'pls lingerie'          => 'https://xgifer.com/lingerie/',
+        'pls masturbation'          => 'https://xgifer.com/masturbation/',
+        'pls mature'          => 'https://xgifer.com/mature/',
+        'pls milf'          => 'https://xgifer.com/milf/',
+        'pls public'          => 'https://xgifer.com/public-sex/',
+        'pls pussy'          => 'https://xgifer.com/pussy/',
+        'pls redhead'          => 'https://xgifer.com/redhead/',
+        'pls selfshot'          => 'https://xgifer.com/selfshot/',
+        'pls cazzo'          => 'https://xgifer.com/solo-male/',
+        'pls teen'          => 'https://xgifer.com/teen/',
+        'pls threesome'          => 'https://xgifer.com/threesome/',
+        'pls toys'          => 'https://xgifer.com/toys/',
     );
 
-
+    public function getUrls(){
+        return array_keys($this->urls);
+    }
 	public function __construct($config){
 		$this->config = $config; 
 	}
@@ -94,10 +96,12 @@ class Request {
 
         $url = $this->config['apiUrl'] . $method;
 		$gif = $this->get_gif($text);
+        $gif = str_replace(".webp", ".gif", $gif);
 
         $data = array(
             'chat_id' 	=> $chatID,
-            'animation' => $gif); 
+            'animation' => $gif
+        ); 
 
         $curl = new Curl();
         return $curl->post($url, $data);
@@ -119,13 +123,25 @@ class Request {
         $dom = new Dom;
         $dom->loadFromUrl($url);
 
-        $list_html = $dom->find('#list')[0]->innerHtml;
+        $elements = $dom->find('.thumb-holder'); 
 
-        $dom->loadStr($list_html);
-        $imgs = $dom->find('img.big');
+        if(count($elements) == 0)
+            return ""; 
 
-        $rand_int = rand(0, count($imgs) - 1);
-        return 'http://porngif.it/' . $imgs[$rand_int]->src;
+        $min = 0; 
+        $max = count($elements); 
+
+        $random_gif = random_int($min, $max); 
+
+        $single_element = $elements[$random_gif]->find('.thumb-image');
+
+        if(count($single_element) > 0){
+            $value = $single_element[0]->getAttribute('data-preview');
+            return $value;
+        }
+
+        return ""; 
+
 	}
 
 }
