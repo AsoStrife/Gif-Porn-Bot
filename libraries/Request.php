@@ -13,50 +13,34 @@ class Request {
     private $log_path = "/home/lzaslddj/gifbot.andreacorriga.com/error_log"; 
 
     // $items[array_rand($items)];
+    private $baseUrl = "https://it.sex.com/pin/64935004/"; 
+
     private $urls = array(
-        'pls amateur'       => 'https://xgifer.com/amateur/',
-        'pls anal'         => 'https://xgifer.com/anal/',
-        'pls asian'       => 'https://xgifer.com/asian/', 
-        'pls ass'   => 'https://xgifer.com/ass/', 
-        'pls babes'          => 'https://xgifer.com/babes/',
-        'pls bbw'      => 'https://xgifer.com/bbw/', 
-        'pls bdsm'      => 'https://xgifer.com/bdsm/',
-        'pls bigtette'          => 'https://xgifer.com/big-tits/',
-        'pls blonde'          => 'https://xgifer.com/blonde/',
-        'pls blowjob'          => 'https://xgifer.com/blowjob/',
-        'pls brunette'          => 'https://xgifer.com/brunette/',
-        'pls celebrity'          => 'https://xgifer.com/celebrity/',
-        'pls college'          => 'https://xgifer.com/college/',
-        'pls creampie'          => 'https://xgifer.com/creampie/',
-        'pls cumshots'          => 'https://xgifer.com/cumshots/',
-        'pls doublepene'          => 'https://xgifer.com/double-penetration/',
-        'pls ebony'          => 'https://xgifer.com/ebony/',
-        'pls emo'          => 'https://xgifer.com/emo/',
-        'pls fisting'          => 'https://xgifer.com/fisting/',
-        'pls footjob'          => 'https://xgifer.com/footjob/',
-        'pls gangbang'          => 'https://xgifer.com/gang-bang/',
-        'pls girlfriend'          => 'https://xgifer.com/girlfriend/',
-        'pls groupsex'          => 'https://xgifer.com/group-sex/',
-        'pls hairy'          => 'https://xgifer.com/hairy/',
-        'pls handjob'          => 'https://xgifer.com/handjob/',
-        'pls hentai'          => 'https://xgifer.com/hentai/',
-        'pls hardcore'          => 'https://xgifer.com/hardcore/',
-        'pls indian'          => 'https://xgifer.com/indian/',
-        'pls interracial'          => 'https://xgifer.com/interracial/',
-        'pls latina'          => 'https://xgifer.com/latina/',
-        'pls lesbian'          => 'https://xgifer.com/lesbian/',
-        'pls lingerie'          => 'https://xgifer.com/lingerie/',
-        'pls masturbation'          => 'https://xgifer.com/masturbation/',
-        'pls mature'          => 'https://xgifer.com/mature/',
-        'pls milf'          => 'https://xgifer.com/milf/',
-        'pls public'          => 'https://xgifer.com/public-sex/',
-        'pls pussy'          => 'https://xgifer.com/pussy/',
-        'pls redhead'          => 'https://xgifer.com/redhead/',
-        'pls selfshot'          => 'https://xgifer.com/selfshot/',
-        'pls cazzo'          => 'https://xgifer.com/solo-male/',
-        'pls teen'          => 'https://xgifer.com/teen/',
-        'pls threesome'          => 'https://xgifer.com/threesome/',
-        'pls toys'          => 'https://xgifer.com/toys/',
+        'pls amatoriali'        => 'https://it.sex.com/gifs/amateur/',
+        'pls anale'             => 'https://it.sex.com/gifs/anal/',
+        'pls threesome'         => 'https://it.sex.com/gifs/threesome/',
+        'pls asiatiche'         => 'https://it.sex.com/gifs/asian/',
+        'pls bionde'            => 'https://it.sex.com/gifs/blonde/',
+        'pls rosse'             => 'https://it.sex.com/gifs/redhead/',
+        'pls brune'             => 'https://it.sex.com/gifs/brunette/',
+        'pls ciccione'          => 'https://it.sex.com/gifs/bbw/',
+        'pls figa'              => 'https://it.sex.com/gifs/pussy/',
+        'pls squirt'            => 'https://it.sex.com/gifs/female-ejaculation/',
+        'pls gay'               => 'https://it.sex.com/gifs/gay/',
+        'pls gang bang'         => 'https://it.sex.com/gifs/gang-bang/',
+        'pls lesbiche'          => 'https://it.sex.com/gifs/lesbian/',
+        'pls masturbazione'     => 'https://it.sex.com/gifs/masturbation/',
+        'pls orgia'             => 'https://it.sex.com/gifs/group-sex/',
+        'pls pelose'            => 'https://it.sex.com/gifs/hairy/',
+        'pls seghe'             => 'https://it.sex.com/gifs/handjob/',
+        'pls sborrate'          => 'https://it.sex.com/gifs/cumshots/',
+        'pls creampie'          => 'https://it.sex.com/gifs/creampie/',
+        'pls trans'             => 'https://it.sex.com/gifs/shemale/',
+        'pls tette'             => 'https://it.sex.com/gifs/big-tits/',
+        'pls maschi'            => 'https://it.sex.com/gifs/solo-male/',
+        'pls pompini'           => 'https://it.sex.com/gifs/blowjob/', 
+        'pls cazzi'             => 'https://it.sex.com/gifs/penis/',
+        'pls hardcore'          => 'https://it.sex.com/gifs/hardcore/'
     );
 
     public function getUrls(){
@@ -111,7 +95,9 @@ class Request {
 	/**
 	 * 
 	 */
-	public function get_gif($parameter = ""){
+	public function get_gif($parameter = "") {
+        $now = date('Y-m-d H:i:s');
+
         $url = "";
 
         if($parameter == "" || $parameter == 'pls porn'){
@@ -121,14 +107,14 @@ class Request {
             $url = $this->urls[$parameter];
         }
 
-        error_log("Requested Gif with the following url: " . $url, 3, $this->log_path);
+        error_log("\n[$now] Requested Gif with the following url: " . $url . "\n", 3, $this->log_path);
 
         $dom = new Dom;
         $dom->loadFromUrl($url);
 
-        $elements = $dom->find('.thumb-holder'); 
+        $elements = $dom->find('.masonry_box'); 
 
-        error_log(".thumg-holder number of elements: " . count($elements), 3, $this->log_path);
+        error_log("\n[$now] .thumg-holder number of elements: " . count($elements) . "\n", 3, $this->log_path);
 
         if(count($elements) == 0)
             return ""; 
@@ -138,12 +124,15 @@ class Request {
 
         $random_gif = random_int($min, $max); 
 
-        error_log("Random element index: " . $random_gif, 3, $this->log_path);
+        error_log("[$now] Random element index: " . $random_gif . "\n", 3, $this->log_path);
 
-        $single_element = $elements[$random_gif]->find('.thumb-image');
+        $single_element = $elements[$random_gif]->find('img');
 
         if(count($single_element) > 0){
-            $value = $single_element[0]->getAttribute('data-preview');
+            $value = $single_element[0]->getAttribute('data-src');
+
+            error_log("[$now] Final value: " . $value . "\n", 3, $this->log_path);
+
             return $value;
         }
 
