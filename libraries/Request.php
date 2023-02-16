@@ -9,11 +9,13 @@ use Curl\Curl;
  */
 class Request {
 
+    private $azureService = "https://strifegifbot.azurewebsites.net/";
+
 	private $config; 
     private $log_path = "/home/lzaslddj/gifbot.andreacorriga.com/error_log"; 
 
     // $items[array_rand($items)];
-    private $baseUrl = "https://it.sex.com/pin/64935004/"; 
+    private $baseUrl = "https://it.sex.com/gifs/"; 
 
     private $urls = array(
         'pls amatoriali'        => 'https://it.sex.com/gifs/amateur/',
@@ -80,8 +82,10 @@ class Request {
 			return null; 
 
         $url = $this->config['apiUrl'] . $method;
-		$gif = $this->get_gif($text);
-        $gif = str_replace(".webp", ".gif", $gif);
+
+		$gifUrl = $this->get_random_gif_url($text);
+
+        $gif = $this->post_to_azure($text, $gifUrl);
 
         $data = array(
             'chat_id' 	=> $chatID,
@@ -95,49 +99,44 @@ class Request {
 	/**
 	 * 
 	 */
-	public function get_gif($parameter = "") {
-        $now = date('Y-m-d H:i:s');
-
-        $url = "";
-
-        if($parameter == "" || $parameter == 'pls porn'){
-            $url = $this->urls[array_rand($this->urls)];
-        }
-        else{
-            $url = $this->urls[$parameter];
-        }
-
-        error_log("\n[$now] Requested Gif with the following url: " . $url . "\n", 3, $this->log_path);
-
+	public function get_random_gif_url($parameter = "") {
+        $url = $this->urls[$parameter];
+        
         $dom = new Dom;
         $dom->loadFromUrl($url);
-
+    
         $elements = $dom->find('.masonry_box'); 
-
-        error_log("\n[$now] .thumg-holder number of elements: " . count($elements) . "\n", 3, $this->log_path);
-
+    
         if(count($elements) == 0)
-            return ""; 
-
+            return null; 
+    
         $min = 0; 
         $max = count($elements); 
-
+    
         $random_gif = random_int($min, $max); 
-
-        error_log("[$now] Random element index: " . $random_gif . "\n", 3, $this->log_path);
-
+    
         $single_element = $elements[$random_gif]->find('img');
-
+            
         if(count($single_element) > 0){
-            $value = $single_element[0]->getAttribute('data-src');
-
-            error_log("[$now] Final value: " . $value . "\n", 3, $this->log_path);
-
-            return $value;
+            return $single_element[0]->getAttribute('data-src');
         }
-
-        return ""; 
+    
+        return null; 
 
 	}
 
+    private function post_to_azure($category, $url){
+        $curl = new Curl();
+
+        $curl->post($this->azureService, [
+            'category' => $category,
+            'url' => $url,
+        ]);
+
+        if ($curl->error) {
+            echo 'Errore: ' . $curl->errorCode . ': ' . $curl->errorMessage;
+        } 
+
+        return $curl->response; 
+    }
 }
