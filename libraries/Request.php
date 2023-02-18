@@ -142,7 +142,9 @@ class Request {
     }
 
     private function getKeyboardsMatrix() {
-        return array_chunk($this->getUrlsKeys(), 3);
+        $array = $this->getUrlsKeys();
+        array_unshift($array, 'pls porn');
+        return array_chunk($array, 3);
     }
 
     public function test($chatID) {
@@ -164,20 +166,5 @@ class Request {
         $curl = new Curl();
         $curl->post($url, $data);
 
-
-        // // Gestione del callback per il cambio pagina
-        // if (strpos($callback_query, 'pagina_') === 0) {
-        //     $page = substr($callback_query, 7);
-        //     $new_keyboard = array_slice($keyboard, $page, 1);
-        //     $new_markup = array(
-        //         'inline_keyboard' => $new_keyboard
-        //     );
-
-        //     $telegram->editMessageReplyMarkup([
-        //         'chat_id' => $$chatID,
-        //         'message_id' => $message_id,
-        //         'reply_markup' => json_encode($new_markup)
-        //     ]);
-        // }
     }
 }

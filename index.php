@@ -44,28 +44,16 @@ if($text == "/start"){
 		$string .=  "- " . $s . "\n"; 
 	}
 
-	$string .= "\n Now, go to horny jail. Bonk. \n @AsoStrife, https://andreacorriga.com";
-	
+    $string .= "
+        \nTo make your day. Thanks the humble @AsoStrife for this bot. \n\n
+    - Website: https://andreacorriga.com
+    - Donations: http://paypal.me/AsoStrife";
+
 	$request->send($message->chatID, $string); 
 }
 
 if($text == "/test"){
     $request->test($message->chatID); 
-}
-
-if($text == "/info"){
-    $string = "AsoStrife Gif Porn Bot. Before go to horny jail, just take 3 seconds to understand how this bot works.\n\nType:\n";
-
-	foreach($accepted_strings as $s){
-		$string .=  "- " . $s . "\n"; 
-	}
-
-	$string .= "
-            \nTo make your day. Thanks the humble @AsoStrife for this bot. \n\n
-		- Website: https://andreacorriga.com
-		- Donations: http://paypal.me/AsoStrife";
-
-	$request->send($message->chatID, $string); 
 }
 
 // Send Porn Gif if message is in array
