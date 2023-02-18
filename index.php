@@ -33,7 +33,7 @@ $log->save($input);
 */
 
 // Accepted strings
-$accepted_strings = $request->getUrls();
+$accepted_strings = $request->getUrlsKeys();
 
 $text = strtolower($message->text);
 
@@ -47,6 +47,10 @@ if($text == "/start"){
 	$string .= "\n Now, go to horny jail. Bonk. \n @AsoStrife, https://andreacorriga.com";
 	
 	$request->send($message->chatID, $string); 
+}
+
+if($text == "/test"){
+    $request->test($message->chatID); 
 }
 
 if($text == "/info"){

@@ -45,9 +45,6 @@ class Request {
         'pls hardcore'          => 'https://it.sex.com/gifs/hardcore/'
     );
 
-    public function getUrls(){
-        return array_keys($this->urls);
-    }
 	public function __construct($config){
 		$this->config = $config; 
 	}
@@ -138,5 +135,49 @@ class Request {
         } 
 
         return $curl->response; 
+    }
+
+    public function getUrlsKeys() {
+        return array_keys($this->urls);
+    }
+
+    private function getKeyboardsMatrix() {
+        return array_chunk($this->getUrlsKeys(), 3);
+    }
+
+    public function test($chatID) {
+        // Creazione del markup della tastiera
+        $markup = array(
+            'keyboard' => $this->getKeyboardsMatrix(),
+            "resize_keyboard" => true,
+            "one_time_keyboard" => false
+        );
+
+        $data = array(
+            'chat_id' => $chatID,
+            'text' => "Seleziona una gif",
+            'reply_markup' => json_encode($markup)
+        ); 
+        $method = 'sendMessage';
+
+        $url = $this->config['apiUrl'] . $method;
+        $curl = new Curl();
+        $curl->post($url, $data);
+
+
+        // // Gestione del callback per il cambio pagina
+        // if (strpos($callback_query, 'pagina_') === 0) {
+        //     $page = substr($callback_query, 7);
+        //     $new_keyboard = array_slice($keyboard, $page, 1);
+        //     $new_markup = array(
+        //         'inline_keyboard' => $new_keyboard
+        //     );
+
+        //     $telegram->editMessageReplyMarkup([
+        //         'chat_id' => $$chatID,
+        //         'message_id' => $message_id,
+        //         'reply_markup' => json_encode($new_markup)
+        //     ]);
+        // }
     }
 }
