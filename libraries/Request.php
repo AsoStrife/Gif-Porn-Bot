@@ -21,16 +21,19 @@ class Request {
         
     }
     
-	public function sendMessage($text) {
+	public function sendMessage($text, $replyMarkup = false) {
 		if(is_null($text) || $text == "")
             throw new Exception("Text is null in sendMessage");
 
         $data = array(
             'chat_id'       => $this->chatID,
-            'text'          => $text,
-            'reply_markup'  => Keyboard::getKeyboard()
+            'text'          => $text
         ); 
 
+        if($replyMarkup){
+            $data['reply_markup'] = Keyboard::getKeyboard();
+        }
+        
         $this->curl->post(Config::sendMesssageUrl(), $data);
 		
 	}
@@ -41,8 +44,9 @@ class Request {
 
         $data = array(
             'chat_id' 	    => $this->chatID,
-            'animation'     => $animation, //"http://strifegifbot.azurewebsites.net/gif/pls%20figa/20701186.gif",
-            'reply_markup'  => Keyboard::getKeyboard()
+            'animation'     => $animation,
+            'has_spoiler'   => true
+            //'reply_markup'  => Keyboard::getKeyboard()
         ); 
 
         $this->curl->post(Config::sendAnimationUrl(), $data);
