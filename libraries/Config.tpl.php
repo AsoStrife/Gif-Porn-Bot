@@ -104,7 +104,7 @@ class Config {
         $key = array_search($value, self::$gifApi);
 
         if ($key === false) {
-            throw new Exception("No Key found in `getCategoryKeyFromValue` for the folowing value: " . $value); 
+            throw new Exception("No Key found in getCategoryKeyFromValue for the folowing value: " . $value); 
         } 
         
         return $key; 
