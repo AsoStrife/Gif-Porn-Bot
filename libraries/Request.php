@@ -52,7 +52,7 @@ class Request {
         $this->curl->post(Config::sendAnimationUrl(), $data);
 	}
 
-    public function handleMessage($text){
+    public function handleMessage($text) {
         $categoryUrl = Config::getCategoryUrlFromText($text); 
         $category = Config::getCategoryKeyFromValue($categoryUrl);
 
@@ -63,6 +63,23 @@ class Request {
         $this->sendAnimation($animation);
     }
 
+    public function handleStats() {
+        $this->curl->get(Config::azureServiceStats());
+
+        if ($this->curl->error) {
+            throw new Exception("Curl Error Fetching Stats: " . $this->curl->errorMessage);
+        } 
+
+        $result = json_decode($this->curl->response, 1); 
+
+        $string = "Statistiche del bot:\n\n"; 
+
+        foreach($result as $key => $stats){
+            $string .=  "- " . $key . ": " . $stats ."\n"; 
+        }
+
+        $this->sendMessage($string);
+    }
 	
 	private function getRandomGifUrlFromProvider($categoryUrl = "") {
         

@@ -48,6 +48,10 @@ class Config {
         return self::getApiUrl() . 'sendAnimation';
     }
 
+    public static function azureServiceStats() {
+        return self::$azureService . 'stats.php'; 
+    }
+    
     // Gif Provider Categories 
     public static $gifApi = array (
         'pls amatoriali' => 'https://it.sex.com/gifs/amateur/',

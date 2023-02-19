@@ -53,6 +53,11 @@ if($text == "/start" || $text == "/start@gifporn_bot") {
 if($text == "/keyboard" || $text == "/keyboard@gifporn_bot") {
     $request->sendMessage("Scegli una categoria di GIF:", true); 
 }
+
+if($text == "/stats" || $text == "/stats@gifporn_bot") {
+    $request->handleStats(); 
+}
+
 // Handle the received message
 if(in_array($text, $acceptedCategories)){
     try {
