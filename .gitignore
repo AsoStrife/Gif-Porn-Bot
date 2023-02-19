@@ -9,7 +9,6 @@
 *.tar
 *.zip
 
-/config/config.php
-/config/db_config.php
 /vendor/
 error_log
+libraries/Config.php

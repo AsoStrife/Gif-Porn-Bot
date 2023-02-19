@@ -31,6 +31,7 @@ $curl->get($url);
 
 // Controlla se la richiesta è stata eseguita con successo
 if ($curl->error) {
+    http_response_code($curl->errorCode);
     echo 'Errore: ' . $curl->errorCode . ': ' . $curl->errorMessage;
 } 
 else {
