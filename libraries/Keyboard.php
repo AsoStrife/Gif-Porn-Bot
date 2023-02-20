@@ -15,7 +15,7 @@ class Keyboard {
         $markup = array(
             'keyboard' => Keyboard::getKeyboardsMatrix(),
             "resize_keyboard" => true,
-            "one_time_keyboard" => true,
+            "one_time_keyboard" => false,
             
         );
 
