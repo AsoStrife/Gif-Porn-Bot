@@ -50,7 +50,7 @@ class Request {
             'chat_id' 	            => $this->chatID,
             'message_thread_id'     => $this->messageThreadId,
             'animation'             => $animation,
-            'has_spoiler'           => true
+            'has_spoiler'           => false
             //'reply_markup'  => Keyboard::getKeyboard()
         ); 
 
