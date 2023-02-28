@@ -27,7 +27,7 @@ $message = new Message($input['message']);
 
 $chat = isset($input['chat']) ? $input['chat'] : null;
 
-$request = new Request($message->chatID);
+$request = new Request($message->chatID, $message->threadID);
 
 // Accepted strings
 $acceptedCategories = Config::getAcceptedCategories();

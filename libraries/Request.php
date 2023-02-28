@@ -8,16 +8,19 @@ require_once('libraries/Keyboard.php');
 
 class Request {
 
-	private $chatID; 
+	private $chatID;
+    private $messageThreadId; 
+
     private $curl; 
 
-    public function __construct($chatID) {
+    public function __construct($chatID, $messageThreadId) {
         $this->curl = new Curl();
 
         if(is_null($chatID) || $chatID == "")
-            throw new Exception("ChatID is null in Request Constructor");
+            throw new Exception("ChatID is null in Request Constructor");   
         
         $this->chatID = $chatID;
+        $this->messageThreadId = $messageThreadId; 
         
     }
     
@@ -26,8 +29,9 @@ class Request {
             throw new Exception("Text is null in sendMessage");
 
         $data = array(
-            'chat_id'       => $this->chatID,
-            'text'          => $text
+            'chat_id'               => $this->chatID,
+            'message_thread_id'     => $this->messageThreadId,
+            'text'                  => $text
         ); 
 
         if($replyMarkup){
@@ -43,9 +47,10 @@ class Request {
             throw new Exception("Animation url is null in sendAnimation");
 
         $data = array(
-            'chat_id' 	    => $this->chatID,
-            'animation'     => $animation,
-            'has_spoiler'   => true
+            'chat_id' 	            => $this->chatID,
+            'message_thread_id'     => $this->messageThreadId,
+            'animation'             => $animation,
+            'has_spoiler'           => true
             //'reply_markup'  => Keyboard::getKeyboard()
         ); 
 
